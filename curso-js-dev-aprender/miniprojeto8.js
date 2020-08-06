@@ -12,31 +12,21 @@ const array = [70,70,80]
 
 console.log(mediaDoAluno(array))
 
-function mediaDoAluno(notas){
-    
-    let media = 0
-    for (i=0;i > notas.length; i++)
-        media += notas[i]        
-    media = media / media.length
-    console.log(media.length)
+function mediaDoAluno(notas){    
 
-    switch (media) {
-        case media > 0 && media <= 59:
-            return 'E'
-            break
-        case media > 59 && media <= 69:
-            return 'D'
-            break
-        case media > 69 && media <= 79:
-            return 'C'
-            break
-        case media > 79 && media <= 89:
-            return 'B'
-            break
-        case media > 89 && media <= 100:
-            return 'A'
-            break
+    const media = calcularMedia(notas)
 
-    }
+    if (media < 59) return 'E'
+    if (media < 69) return 'D'
+    if (media < 79) return 'C'
+    if (media < 89) return 'B'
+    return 'A'
+}
 
+function calcularMedia(array){
+    let soma = 0
+    for (let valor of array)
+        soma += valor
+
+    return soma/(array.length)
 }
